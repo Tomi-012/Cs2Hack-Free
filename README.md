@@ -107,7 +107,3 @@ math/           vec2 · vec3 · mat3x4 · mat4x4
 third_party/    imgui (bundled)
 docs/           screenshot menu (background hitam dibersihkan)
 ```
-
-## Disclaimer
-
-Gunakan dengan risiko sendiri. Cheat melanggar ToS game dan berisiko banned (VAC/game ban). Repo privat, jangan disebarluaskan.
