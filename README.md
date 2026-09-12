@@ -2,7 +2,19 @@
 
 Cheat **external** Counter-Strike 2 dengan overlay DirectX 11 + ImGui. Tanpa inject DLL — membaca memori `cs2.exe` dan menggambar ESP lewat window overlay transparan. Target build game **14181**.
 
-![ESP](docs/ui-esp.png)
+## Tampilan Menu
+
+| ESP | Radar |
+|---|---|
+| ![ESP](docs/ui-esp.png) | ![Radar](docs/ui-radar.png) |
+
+| Misc | Players |
+|---|---|
+| ![Misc](docs/ui-misc.png) | ![Players](docs/ui-players.png) |
+
+| Status | Presets |
+|---|---|
+| ![Status](docs/ui-status.png) | ![Presets](docs/ui-presets.png) |
 
 ## Fitur
 
@@ -26,13 +38,9 @@ Cheat **external** Counter-Strike 2 dengan overlay DirectX 11 + ImGui. Tanpa inj
 | Teammates | Tampilkan teman setim atau tidak |
 | 5 Color Picker | Warna Box Musuh, Box Tim, Skeleton, Snaplines, Panah |
 
-![Radar](docs/ui-radar.png)
-
 ### Radar (`Radar`)
 
-- **Radar Minimap (spotted)** — musuh muncul di minimap game. Butuh akses tulis (jalankan sebagai Admin).
-
-![Misc](docs/ui-misc.png)
+Radar Minimap (spotted) — musuh muncul di minimap game. Butuh akses tulis (jalankan sebagai Admin).
 
 ### Misc (`Misc`)
 
@@ -48,19 +56,13 @@ Cheat **external** Counter-Strike 2 dengan overlay DirectX 11 + ImGui. Tanpa inj
 | OBS Bypass | Overlay disembunyikan dari rekaman (`WDA_EXCLUDEFROMCAPTURE`) |
 | Crosshair Overlay | Size, gap, thickness + warna custom |
 
-![Players](docs/ui-players.png)
-
 ### Players (`Players`)
 
 Tabel live semua pemain: ID, Nama (warna T/CT), HP (hijau/kuning/merah), Armor, Tim, Jarak, Senjata. Baris hijau = hidup terlihat, merah = mati.
 
-![Status](docs/ui-status.png)
-
 ### Status (`Status`)
 
 Diagnostik live: status attach, build game (+peringatan `STALE` jika offset kedaluwarsa), mode tulis RW/READ-ONLY, validitas view matrix, jumlah pemain/musuh, status bom, hit counter, fps render + p95, latensi UI/submit/present, usia snapshot, frekuensi worker, statistik RPM, renderer GPU/WARP. Log yang sama ditulis tiap 2 detik ke `cs2_diag.txt`.
-
-![Presets](docs/ui-presets.png)
 
 ### Presets (`Presets`)
 
