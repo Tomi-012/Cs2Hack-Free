@@ -22,7 +22,6 @@
 #include "../math/vec3.h"
 #include "../math/vec2.h"
 #include "../math/mat4x4.h"
-#include "../math/mat3x4.h"
 #include "../math/math_utils.h"
 
 // ImGui selalu tersedia karena project ini selalu build dengan imgui

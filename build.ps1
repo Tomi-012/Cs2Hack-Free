@@ -52,7 +52,6 @@ $SOURCES = @(
     "$ROOT\cheat\overlay.cpp",
     "$ROOT\math\vec2.cpp",
     "$ROOT\math\vec3.cpp",
-    "$ROOT\math\mat3x4.cpp",
     "$ROOT\math\mat4x4.cpp",
     "$ROOT\third_party\imgui\imgui.cpp",
     "$ROOT\third_party\imgui\imgui_draw.cpp",

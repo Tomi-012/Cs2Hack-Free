@@ -16,7 +16,6 @@ set(SOURCES
     cheat/overlay.cpp
     math/vec2.cpp
     math/vec3.cpp
-    math/mat3x4.cpp
     math/mat4x4.cpp
     third_party/imgui/imgui.cpp
     third_party/imgui/imgui_draw.cpp
