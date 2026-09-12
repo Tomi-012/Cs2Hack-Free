@@ -248,7 +248,12 @@ static void GameWorker() noexcept {
                         snap.players[++slot] = src;
                     }
 
-                    // ---- Fitur worker ----
+                    // ---- Fitur worker (radar/glow/fov BUTUH writes_allowed valid
+                    // dulu — baca matrix SEBELUM tulis, pola H-V2) ----
+                    snap.view_matrix = g_mem.Read<Mat4x4>(
+                        g_mem.client_base + offsets::client::dwViewMatrix);
+                    bool matrix_ok = !snap.view_matrix.IsZeroMatrix();
+                    g_mem.writes_allowed = matrix_ok;
                     RunBhop(local_pawn);
                     RunNoShake(local_pawn);
                     RunRadar(snap.players, local_team);
@@ -257,10 +262,6 @@ static void GameWorker() noexcept {
                     ReadBomb(g_mem.client_base, entity_list, snap.bomb);
                     DetectHit(g_mem.client_base, local_pawn, snap.hit);
 
-                    snap.view_matrix = g_mem.Read<Mat4x4>(
-                        g_mem.client_base + offsets::client::dwViewMatrix);
-                    bool matrix_ok = !snap.view_matrix.IsZeroMatrix();
-                    g_mem.writes_allowed = matrix_ok;
                     snap.local_team = local_team;
                     snap.local_eye = local_origin;
                     snap.attached   = true;

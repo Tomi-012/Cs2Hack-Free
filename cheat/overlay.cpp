@@ -159,10 +159,15 @@ void SetMenuOpen(bool open) noexcept {
     ::SetWindowLongPtrW(g_hwnd, GWL_EXSTYLE, ex);
     if (open) { ::ShowWindow(g_hwnd, SW_SHOW); ::SetForegroundWindow(g_hwnd); }
     else if (s_game_window && !::IsIconic(s_game_window)) {
+        // ponytail: jangan pernah HIDE permanen — DirectComposition butuh
+        // window visible agar Present tampil; HIDE bikin ESP ikut hilang
+        // (pola H-V2: hanya sembunyikan sesaat untuk serah-terima fokus).
         ::ShowWindow(g_hwnd, SW_HIDE);
         ::ClipCursor(nullptr);
         ::SetForegroundWindow(s_game_window);
         PumpMsgs();
+        ::ShowWindow(g_hwnd, SW_SHOW);
+    } else {
         ::ShowWindow(g_hwnd, SW_SHOW);
     }
     s_resuming = true;
@@ -532,7 +537,7 @@ void RenderFrame(const std::array<PlayerData, k_max_entities>& players,
                  bool can_write, const BombInfo& bomb, const HitState& hit,
                  int game_build, double worker_hz, DWORD sample_ms)
 {
-    SyncGameWindow(process_attached ? (DWORD)0 : (DWORD)0);
+    SyncGameWindow(process_attached ? g_mem.process_id : (DWORD)0);
     if (!FrameVisible()) { ++s_stats.hidden_frames; return; }
     if (s_occluded && g_pSwapChain) {
         HRESULT hr = g_pSwapChain->Present(0, DXGI_PRESENT_TEST);

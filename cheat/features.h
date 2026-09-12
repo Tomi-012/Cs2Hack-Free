@@ -708,14 +708,16 @@ inline void RunNoShake(uintptr_t local_pawn) noexcept {
 }
 
 // ---- Radar spotted (in-game minimap) -----------------------------------------
+// ponytail: tulis langsung tiap 200ms SELALU (pola H-V2 RunRadarSpotted).
+// ApplyPatch direstore tiap siklus agar mask refresh mengikuti game.
 inline void RunRadar(const std::array<PlayerData, k_max_entities>& players,
                      int local_team) noexcept {
     using namespace detail;
     if (!g_misc_cfg.radar_spotted) { RestoreKind(PatchKind::Radar); return; }
-    if (!g_mem.CanWrite()) return;
+    if (!g_mem.CanModify()) return;
     static DWORD last = 0;
     DWORD now = GetTickCount();
-    if (now - last < 200) return;
+    if (last && now - last < 200) return;
     last = now;
     RestoreKind(PatchKind::Radar, &players, local_team);
     for (int i = 1; i <= k_entity_loop; ++i) {
