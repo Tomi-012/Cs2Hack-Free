@@ -21,3 +21,5 @@ scratch/*.pdb
 scratch/*.lib
 
 cheat/manifest.res
+
+third_party/fmt/
