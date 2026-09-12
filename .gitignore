@@ -1,25 +1,6 @@
-# build output
-cs2_cheat.exe
-cs2_cheat.pdb
-main.lib
-*.pdb
-*.lib
-*.obj
-zig-cache/
-zig-out/
-build/
-NUL
 # local toolchain (download sendiri dari ziglang.org)
 zig-windows-x86_64-0.13.0/
-# runtime artifacts
-cs2_diag.txt
-cs2cheat.cfg
-# docs mentah
-docs_tmp/
+# scratch
 New folder/scratch/*.exe
 scratch/*.pdb
 scratch/*.lib
-
-cheat/manifest.res
-
-third_party/fmt/

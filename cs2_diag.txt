@@ -1,0 +1,5 @@
+attached=1 build=14181 write=1 players=10 alive=10 enemies=5
+bomb planted=0 countdown=-1.0 defusing=0 defuse=-1.0 by=
+render fps=0.0 p95=0.00 ui=0.05 submit=0.02 present=0.07 wait=8.21 snap_age=0 worker_hz=59.6
+frames=460 hidden=0 sskip=0 rskip=0 pfail=0 comp=1 warp=0
+rpm=375212 read_fail=0 write_fail=0
